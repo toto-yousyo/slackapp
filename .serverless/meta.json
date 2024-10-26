@@ -1,0 +1,194 @@
+{
+  "/Users/takadahisakazu/create/langchain/slackapp": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.7",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "default-aws-credential-resolver": "<REDACTED>",
+      "sls": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "service": "LangChainBook-ChatGPTSlackFunction",
+            "frameworkVersion": "4",
+            "provider": {
+              "name": "aws",
+              "stage": "dev",
+              "region": "ap-northeast-1",
+              "iam": {
+                "role": {
+                  "statements": [
+                    {
+                      "Effect": "Allow",
+                      "Action": [
+                        "lambda:InvokeFunction"
+                      ],
+                      "Resource": "*"
+                    }
+                  ]
+                }
+              },
+              "versionFunctions": true,
+              "environment": {
+                "SLACK_SIGNING_SECRET": "<REDACTED>",
+                "SLACK_BOT_TOKEN": "<REDACTED>",
+                "SLACK_APP_TOKEN": "<REDACTED>",
+                "OPENAI_API_KEY": "<REDACTED>",
+                "OPENAI_API_MODEL": "gpt-3.5-turbo",
+                "OPENAI_API_TEMPERATURE": "0.5",
+                "MOMENTO_AUTH_TOKEN": "<REDACTED>",
+                "MOMENTO_CACHE": "langchain-book",
+                "MOMENTO_TTL": "1"
+              }
+            },
+            "package": {
+              "patterns": [
+                "!.venv/**",
+                "!.env",
+                "!.gitignore",
+                "!.python-version",
+                "!.git/**"
+              ],
+              "artifactsS3KeyDirname": "serverless/LangChainBook-ChatGPTSlackFunction/dev/code-artifacts"
+            },
+            "functions": {
+              "app": {
+                "name": "LangChainBook-ChatGPTSlackFunction-dev-app",
+                "handler": "app.handler",
+                "runtime": "python3.12",
+                "memorySize": 512,
+                "timeout": 900,
+                "url": true,
+                "events": []
+              }
+            },
+            "plugins": [
+              "serverless-python-requirements",
+              "serverless-dotenv-plugin"
+            ]
+          },
+          "configFileDirPath": "/Users/takadahisakazu/create/langchain/slackapp",
+          "config": {
+            "type": "sls"
+          },
+          "options": {},
+          "stage": "dev",
+          "dashboard": null,
+          "logger": {
+            "namespace": "s:core:resolver:sls",
+            "prefix": null,
+            "prefixColor": null
+          },
+          "_credentialsPromise": "<REDACTED>"
+        },
+        "resolvers": {}
+      }
+    },
+    "composeServiceName": null,
+    "servicePath": "/Users/takadahisakazu/create/langchain/slackapp",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "LangChainBook-ChatGPTSlackFunction",
+      "frameworkVersion": "4",
+      "provider": {
+        "name": "aws",
+        "stage": "dev",
+        "region": "ap-northeast-1",
+        "iam": {
+          "role": {
+            "statements": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "lambda:InvokeFunction"
+                ],
+                "Resource": "*"
+              }
+            ]
+          }
+        },
+        "versionFunctions": true,
+        "environment": {
+          "SLACK_SIGNING_SECRET": "<REDACTED>",
+          "SLACK_BOT_TOKEN": "<REDACTED>",
+          "SLACK_APP_TOKEN": "<REDACTED>",
+          "OPENAI_API_KEY": "<REDACTED>",
+          "OPENAI_API_MODEL": "gpt-3.5-turbo",
+          "OPENAI_API_TEMPERATURE": "0.5",
+          "MOMENTO_AUTH_TOKEN": "<REDACTED>",
+          "MOMENTO_CACHE": "langchain-book",
+          "MOMENTO_TTL": "1"
+        }
+      },
+      "package": {
+        "patterns": [
+          "!.venv/**",
+          "!.env",
+          "!.gitignore",
+          "!.python-version",
+          "!.git/**"
+        ],
+        "artifactsS3KeyDirname": "serverless/LangChainBook-ChatGPTSlackFunction/dev/code-artifacts"
+      },
+      "functions": {
+        "app": {
+          "name": "LangChainBook-ChatGPTSlackFunction-dev-app",
+          "handler": "app.handler",
+          "runtime": "python3.12",
+          "memorySize": 512,
+          "timeout": 900,
+          "url": true,
+          "events": []
+        }
+      },
+      "plugins": [
+        "serverless-python-requirements",
+        "serverless-dotenv-plugin"
+      ]
+    },
+    "serviceRawFile": "service: LangChainBook-ChatGPTSlackFunction\nframeworkVersion: '4'\n\nprovider:\n  name: aws\n  stage: dev\n  region: ap-northeast-1\n  iam:\n    role:\n      statements:\n        - Effect: \"Allow\"\n          Action:\n            - lambda:InvokeFunction\n          Resource: \"*\"\n\npackage:\n  patterns:\n    - '!.venv/**'\n    - '!.env'\n    - '!.gitignore'\n    - '!.python-version'\n    - '!.git/**'\n\nfunctions:\n  app:\n    name: LangChainBook-ChatGPTSlackFunction-${sls:stage}-app\n    handler: app.handler\n    runtime: python3.12\n    memorySize: 512\n    timeout: 900\n    url: true\n\nplugins:\n  - serverless-python-requirements\n  - serverless-dotenv-plugin\n\n",
+    "command": [
+      "deploy"
+    ],
+    "options": {},
+    "error": {
+      "message": "User: arn:aws:iam::771837165292:user/worker is not authorized to perform: cloudformation:DescribeStackResource on resource: arn:aws:cloudformation:ap-northeast-1:771837165292:stack/LangChainBook-ChatGPTSlackFunction-dev/* because no identity-based policy allows the cloudformation:DescribeStackResource action",
+      "stack": "ServerlessError2: User: arn:aws:iam::771837165292:user/worker is not authorized to perform: cloudformation:DescribeStackResource on resource: arn:aws:cloudformation:ap-northeast-1:771837165292:stack/LangChainBook-ChatGPTSlackFunction-dev/* because no identity-based policy allows the cloudformation:DescribeStackResource action\n    at file:///Users/takadahisakazu/.serverless/releases/4.4.7/package/dist/sf-core.js:725:36\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async persistentRequest (file:///Users/takadahisakazu/.serverless/releases/4.4.7/package/dist/sf-core.js:724:1963)",
+      "code": "AWS_CLOUD_FORMATION_DESCRIBE_STACK_RESOURCE_ACCESS_DENIED"
+    },
+    "params": {},
+    "machineId": "4596310eef128537f28c9684d8caee72",
+    "stage": "dev",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "b913d917-9961-46fd-9934-866c5150f47f",
+    "orgName": "hisat",
+    "userId": "hZkQB2pVNRnN1BcFjL",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "hisat",
+    "subscription": null,
+    "userEmail": "hisakazu49@gmail.com",
+    "serviceProviderAwsRegion": "ap-northeast-1",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "771837165292",
+    "projectType": "traditional",
+    "versionSf": "4.4.7",
+    "serviceProviderAwsCfStackName": "LangChainBook-ChatGPTSlackFunction-dev",
+    "serviceUniqueId": null,
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}
